@@ -1,0 +1,46 @@
+<html>
+<title>STEM Quiz!</title>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <style src="./../style/style.css"></style>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <script src="./../js/question.js"></script>
+</head>
+
+<body>
+    <br>
+    <h2 align="center" id="question"></h2> <br><br><br>
+    
+        <div id="chioce-outer-div" style="text-align:center">
+            <div id="choice-inner-div" style="display:inline-block; text-align:left">
+                <input id="c1" type="radio" name="choice" value="c1">
+                <label id="l1" for="c1"></label>
+                <br>
+                <input id="c2" type="radio" name="choice" value="c2">
+                <label id="l2" for="c2"></label>
+                <br>
+                <input id="c3" type="radio" name="choice" value="c3">
+                <label id="l3" for="c3"></label>
+                <br>
+                <input id="c4" type="radio" name="choice" value="c4">
+                <label id="l4" for="c4"></label>
+                <br>
+            </div>
+            <br><br><br>
+            <div style="float: left" padding-left="20px">
+                <button class="btn btn-danger" style="margin-left: 350px;" id="previous">Previous</button>
+            </div>
+            <div style="float: right">
+                <button class="btn btn-success" id="next">Next</button>
+            </div>
+        </div>
+    
+</body>
+
+</html>
