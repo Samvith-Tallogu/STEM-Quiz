@@ -21,11 +21,23 @@ function send_details() {
     //console.log(c_name);
     //console.log(c_email);
     //console.log(c_age);
+    var key;
     firebase.database().ref("users/").push({
         name:c_name,
         email:c_email,
-        age:c_age
+        age:c_age,
+        score:0,
+        question_number:1
+    }).then((snap) => {
+      key = snap.key;
+      localStorage.setItem("user_id", key);
+      localStorage.setItem("question_number", 1);
+      localStorage.setItem("score", 0);
+      console.log("user_id: " +localStorage.getItem("user_id"));
+      console.log("question_number: " +localStorage.getItem("question_number"));
+      console.log("score: " +localStorage.getItem("score"));
+      //console.log("key: " + key);
+      window.location = "./../html/question.html";
     });
-    console.log("pushed details.");
-    window.location = "./../html/question.html";
+    
 }

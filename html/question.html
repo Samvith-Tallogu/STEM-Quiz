@@ -15,8 +15,8 @@
 
 <body>
     <br>
+    <h2 align="center" id="question_number"></h2>
     <h2 align="center" id="question"></h2> <br><br><br>
-    
         <div id="chioce-outer-div" style="text-align:center">
             <div id="choice-inner-div" style="display:inline-block; text-align:left">
                 <input id="c1" type="radio" name="choice" value="c1">
@@ -34,13 +34,15 @@
             </div>
             <br><br><br>
             <div style="float: left" padding-left="20px">
-                <button class="btn btn-danger" style="margin-left: 350px;" id="previous">Previous</button>
+                <button onclick="previous_question()" class="btn btn-danger" style="width: 150px; margin-left: 350px;" id="previous">Previous</button>
             </div>
             <div style="float: right">
-                <button class="btn btn-success" id="next">Next</button>
+                <button onclick="next_question()" class="btn btn-success" style="width: 150px; margin-right: 350px;" id="next">Next</button>
             </div>
         </div>
-    
+        <br><br><br><br>
+    <h3 align="center" id="score"></h3>
+        
 </body>
 
 </html>
