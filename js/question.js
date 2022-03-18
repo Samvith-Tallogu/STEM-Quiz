@@ -64,7 +64,15 @@ function next_question(){
 
 function get_answer(q){
   if (q == 1) return "c3"
-  else if (q == 2) return "c2"
+  else if (q == 2) return "c3"
+  else if (q == 3) return "c2"
+  else if (q == 4) return "c4"
+  else if (q == 5) return "c1"
+  else if (q == 6) return "c3"
+  else if (q == 7) return "c3"
+  else if (q == 8) return "c1"
+  else if (q == 9) return "c4"
+  else if (q == 10) return "c2"
   else return false;
   
 }
