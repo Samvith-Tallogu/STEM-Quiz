@@ -17,7 +17,6 @@ function send_details() {
   //console.log("send details() invoked");
   c_name = document.getElementById("input_name").value;
   c_email = document.getElementById("input_mail").value;
-  c_age = document.getElementById("input_age").value;
   //console.log(c_name);
   //console.log(c_email);
   //console.log(c_age);
@@ -25,7 +24,6 @@ function send_details() {
   firebase.database().ref("users/").push({
     name: c_name,
     email: c_email,
-    age: c_age,
     score: 0,
     question_number: 1
   }).then((snap) => {
