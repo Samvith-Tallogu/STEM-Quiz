@@ -33,13 +33,6 @@ function get_questions(i) {
   });
 }
 
-
-function confirm_and_next_question(){
-  validate_answer();
-  get_questions(j);
-
-}
-
 function previous_question(){
   update_score("prev");
   var i = parseInt(localStorage.getItem("question_number"));
@@ -72,7 +65,7 @@ function next_question(){
 }
 
 function final_screen(){
-  window.location = "./../html/final.html";
+  window.location = "./../final.html";
 }
 
 function get_answer(q){
