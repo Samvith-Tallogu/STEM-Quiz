@@ -37,7 +37,7 @@ function send_details() {
     //console.log("question_number: " + localStorage.getItem("question_number"));
     //console.log("score: " + localStorage.getItem("score"));
     //console.log("key: " + key);
-    window.location = "./../question.html";
+    window.location = "./question.html";
   });
 
 }

@@ -1,3 +1,3 @@
 function detailpage() {
-    window.location = "./../user_details.html";
+    window.location = "./user_details.html";
 }

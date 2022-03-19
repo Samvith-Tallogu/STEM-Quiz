@@ -16,5 +16,5 @@ function final_message(){
 }
 
 function gotohome(){
-    window.location = "./../index.html"
+    window.location = "./index.html"
 }

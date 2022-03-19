@@ -65,7 +65,7 @@ function next_question(){
 }
 
 function final_screen(){
-  window.location = "./../final.html";
+  window.location = "./final.html";
 }
 
 function get_answer(q){
