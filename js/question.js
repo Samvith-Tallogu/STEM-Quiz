@@ -18,8 +18,8 @@ function get_questions(i) {
     //var userRef = firebase.database().ref("users/");
     questionRef.on('value', (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
-      document.getElementById("question_number").innerHTML = "Question # " + i;
+      //console.log(data);
+      document.getElementById("question_number").innerHTML = "Question #" + i;
       document.getElementById("question").innerHTML = data.question;
       document.getElementById("c1").textContent = data.c1;
       document.getElementById("c2").textContent = data.c2;
@@ -41,25 +41,38 @@ function confirm_and_next_question(){
 }
 
 function previous_question(){
+  update_score("prev");
   var i = parseInt(localStorage.getItem("question_number"));
-  console.log("previous_question: var i: "+i)
+  //console.log("previous_question: var i: "+i)
   if (i > 1) {
      i = i - 1;
   }
   localStorage.setItem("question_number", i);
   get_questions(i);
+
 }
 
 function next_question(){
-  
   update_score("next");
   var qn = parseInt(localStorage.getItem("question_number"));
-  console.log("next_question: var i: "+qn)
+
+  //console.log("next_question: var i: "+qn)
   if (qn < 20) {
      qn = qn + 1;
+  } else {
+    final_screen();
   }
   localStorage.setItem("question_number", qn);
   get_questions(qn);
+  document.getElementById("c1").checked = false;
+  document.getElementById("c2").checked = false;
+  document.getElementById("c3").checked = false;
+  document.getElementById("c4").checked = false;
+  document.getElementById("qprog").style.width = qn*5 + "%";
+}
+
+function final_screen(){
+  window.location = "./../html/final.html";
 }
 
 function get_answer(q){
@@ -73,25 +86,44 @@ function get_answer(q){
   else if (q == 8) return "c1"
   else if (q == 9) return "c4"
   else if (q == 10) return "c2"
+  else if (q == 11) return "c4"
+  else if (q == 12) return "c1"
+  else if (q == 13) return "c3"
+  else if (q == 14) return "c3"
+  else if (q == 15) return "c2"
+  else if (q == 16) return "c2"
+  else if (q == 17) return "c4"
+  else if (q == 18) return "c2"
+  else if (q == 19) return "c1"
+  else if (q == 20) return "c1"
   else return false;
   
 }
 
 function update_score(seq){
   var ch = document.querySelector('input[name="choice"]:checked').value;
-  console.log("selected value: " + ch);
+  //console.log("selected value: " + ch);
   var qn = parseInt(localStorage.getItem("question_number"));
+  var prev_score = parseInt(localStorage.getItem("prev_score"));
   var score = parseInt(localStorage.getItem("score"));
   var answer_check = get_answer(qn);
-  if (seq == "next" && answer_check == ch) {
+  if (ch == null && seq == "prev") {
+    score = prev_score;
+  }
+  else if (ch == null && seq == "prev" && answer_check == ch) {
     score = score + 5;
-  } else 
+  }
+  else if (seq == "next" && answer_check == ch) {
+
+    score = score + 5;
+  } else if (seq == "next" && answer_check != ch) {
     score = score - 1;
+  } else if (seq == "prev" && answer_check == ch) {
+    score = score - 5;
+  } else if (seq == "prev" && answer_check != ch) {
+    score = score + 1;
+  } 
   localStorage.setItem("score", score);
   document.getElementById("score").innerHTML = "Score: " + localStorage.getItem("score");
-  console.log("new score: " + localStorage.getItem("score"));
-}
-
-function show_submit() {
-  document.getElementById("submit_btn").innerHTML = '<button style="font-size: 20px ;font-size: 20px;margin-top: 40px; margin-bottom: 25px; margin-left: 590px;margin-right: 10px;" onclick="get_questions()" class="btn btn-success">Submit</button>'
+  //console.log("new score: " + localStorage.getItem("score"));
 }

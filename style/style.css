@@ -12,8 +12,3 @@ body{
 #icon{
     float: left;
 }
-input[type='radio'], label{   
-    vertical-align: baseline;
-    padding: 10px;
-    margin: 10px;
-}
