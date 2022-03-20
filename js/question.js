@@ -112,6 +112,9 @@ function update_score(seq){
   else if (seq == "next" && answer_check == ch) {
 
     score = score + 5;
+    if (score > 100) {
+      score = 100;
+    }
   } else if (seq == "next" && answer_check != ch) {
     score = score - 1;
   } else if (seq == "prev" && answer_check == ch) {
