@@ -32,7 +32,7 @@ function send_details() {
     localStorage.setItem("question_number", 1);
     localStorage.setItem("score", 0);
     localStorage.setItem("user_name", c_name);
-    //localStorage.setItem("useremail", c_email);
+    localStorage.setItem("user_email", c_email);
     //console.log("user_id: " + localStorage.getItem("user_id"));
     //console.log("question_number: " + localStorage.getItem("question_number"));
     //console.log("score: " + localStorage.getItem("score"));
