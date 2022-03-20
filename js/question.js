@@ -102,26 +102,21 @@ function update_score(seq){
   var answer_check = get_answer(qn);
   if (ch == null && seq == "prev") {
     score = prev_score;
-  }
-  else if (ch == null && seq == "prev" && answer_check == ch) {
+  } else if (ch == null && seq == "prev" && answer_check == ch) {
     score = score + 5;
     if (score > 100){
       score = 100;
     }
-  }
-  else if (seq == "next" && answer_check == ch) {
-
+  } else if (seq == "next" && answer_check == ch) {
     score = score + 5;
-    if (score > 100) {
-      score = 100;
-    }
+    if (score > 100) score = 100;
   } else if (seq == "next" && answer_check != ch) {
     score = score - 1;
   } else if (seq == "prev" && answer_check == ch) {
     score = score - 5;
   } else if (seq == "prev" && answer_check != ch) {
     score = score + 1;
-  } 
+  }
   localStorage.setItem("score", score);
   document.getElementById("score").innerHTML = "Score: " + localStorage.getItem("score");
   //console.log("new score: " + localStorage.getItem("score"));
